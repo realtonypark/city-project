@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing the Smart City - Tony Park</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Original styles */
+        p {
+        font-size: 1.1rem; 
+        }
+        .hero {
+            background-image: url('assets/cover.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        .image-comparison {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+        .image-comparison figure {
+            flex: 1;
+            text-align: center;
+        }
+        .image-comparison img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+        }
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+        .quote {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4a5568;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* Animation styles */
+        .container {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #2F4F4F;
+            position: relative;
+            border-radius: 4px;
+        }
+        .shape {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shape svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .shape path {
+            fill: rgba(144, 238, 244, 0.3);
+            transition: d 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .text {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .demo-button {
+            display: block;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .demo-button:hover {
+            background: #357ABD;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <header class="hero h-96 flex items-center justify-center text-white">
+        <div class="text-center">
+            <h1 class="text-7xl font-bold mb-12">Designing the Smart City</h1>
+            <br>
+            <p class="text-3xl mb-5"><b>Tony Park</b></p>
+        </div>
+    </header>
+    <!-- Overview Table of Contents -->
+    <div class="max-w-4xl mx-auto py-12 px-4">
+        <div class="bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-2xl font-bold mb-6">Table of Contents</h2>
+            <div class="space-y-3">
+                <p class="text-gray-800"><strong>I. Introduction</strong></p>
+                <p class="text-gray-800"><strong>II. The Challenges: Why We Need a New Smart City</strong></p>
+                <p class="text-gray-800"><strong>III. Cyclic Road Network and Hexagonal Design</strong></p>
+                <p class="text-gray-800"><strong>IV. Green Space and Active Sidewalk</strong></p>
+                <p class="text-gray-800"><strong>V. Advanced Urban Participatory Budgeting</strong></p>
+                <p class="text-gray-800"><strong>VI. Conclusion</strong></p>
+                <p class="text-gray-800"><strong>VII. References</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content-section">
+        <!-- Introduction -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6">I. Introduction</h2>
+            <p class="mb-5">What would you consider the greatest invention in the history of mankind? While the wheel, steam engine, or light bulb might come to mind, Harvard economist Edward Glaeser argues that cities are our most significant achievement. In "Triumph of the City," Glaeser describes cities as "the absence of physical space between people and companies" and demonstrates their fundamental role in human progress. His research reveals that more urbanized countries experience five times higher incomes and lower infant mortality rates compared to their less urbanized counterparts. Glaeser argues that meaningful human innovation began with the establishment of cities. When people live in close proximity, they become smarter through collaboration, leading to the advancement of civilization (Glaeser, 2011).</p>
+            
+            <div class="quote">
+                <p class="italic">"Cities are humanity's greatest invention - the absence of physical space between people and companies."</p>
+                <p class="mt-2 text-gray-600">- Edward Glaeser, Harvard Economist</p>
+            </div>
+            
+            <p class="mb-5">As mankind's greatest invention, the city has continued to evolve, and we are now in the era of the smart city. The traditional definition of a smart city, as Dameri (2013) explains, focuses on "a well-defined geographical area, in which high technologies such as ICT, logistics, and energy production cooperate to create benefits for citizens." This technology-centric view dominates the perception of a smart city.</p>
+            <p class="mb-5">However, I argue that this definition is too narrow and fails to capture the true potential of smart urban development. I propose a more comprehensive definition: a smart city is an environment that beyond technology use, <b>(1) promotes citizen's well-being, (2) maximizes human interactions while (3) occupying less space.</b> This definition builds on Glaeser's emphasis on cities as catalysts for human interaction and addresses contemporary challenges due to rapid urbanization. This project will present a new smart city design that embodies this definition.</p>
+        </section>
+
+        <!-- Challenge Section -->
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-6">II. The Challenges: Why We Need a New Smart City</h2>
+            <img src="assets/challenge.jpg" alt="Urban Challenge" class="w-full mb-4 rounded">
+            
+            <p class="mb-5">Over the past century, we've witnessed an extraordinary transformation in human population and land use. From 1.5 billion people a century ago to over 8 billion today, human has dramatically expanded its footprint. Global land use has changed dramatically over the past century, with significant impacts on the Earth's surface. Between 1960 and 2019, approximately 32% of the world's land area has been affected by land-use change, which is about four times greater than previously estimated primarily due to urbanization (Viglione, 2021). As humans increasingly develop land into urban areas, the trend of urbanization continues to accelerate: from 1.731 billion urban residents in 1980 (39% of global population) to 3.968 billion in 2015 (54%), with projections reaching 6.419 billion by 2050 (66% of humanity) (Urbanet, 2016). This rapid urbanization has led to poor air and water quality, waste-disposal problems, and high energy consumption, directly impacting human well-being (National Geographic, n.d.).</p>
+            <p class="mb-5">Beyond environmental challenges, cities face social issues. In his work "The Metropolis and Mental Life", Georg Simmel suggests the constant sensory overload of urban life leads to what he calls a "blasé attitude" - a psychological defense mechanism where individuals become increasingly indifferent to their surroundings and fellow citizens. This detachment is deepened with the impersonal, money-driven nature of urban interactions and fundamentally reshapes human connections within cities, shifting relationships from emotional to rational bases (Simmel, 1903).</p>
+            <p class="mb-5">These environmental and social challenges in the city bring us back to the definition of a smart city. My suggested definition attempts to address these issues: promoting citizen well-being in the face of environmental challenges, fostering meaningful human connections despite urban psychological strain, and minimizing spatial footprint to counter excessive land use.</p>
+        </section>
+
+        <!-- Road Network Section -->
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-6">III. Cyclic Road Network and Hexagonal Design</h2>
+            
+            <!-- Road Network Comparison -->
+            <p class="mb-5">The road network itself can influence people's behavior and that behavior creates a lifestyle. For instance, some road networks encourage people to drive more while other kinds encourage people to walk more. Historically, the road network has been determined by the primary means of transportation of the era that the city was created. Rome, for example, the distance between intersections in the main street is about 35 meters, which is because Rome's urban structure was created by people walking around at that time. On the other hand, Manhattan has less dense intersections of about 60 to 200 meters since Manhattan was built in the days of horse-drawn carriages. In the case of Seoul, which was redeveloped later than Manhattan, the major intersections are further apart by 800 meters (based on Google Earth / Google Map measurements). These historical examples suggest that road networks have long been designed with careful consideration to meet specific urban needs and purposes.</p>
+            <div class="image-comparison">
+                <figure>
+                    <img src="assets/rome-road.png" alt="Rome Road Network">
+                    <figcaption class="text-sm text-gray-600">Rome: 35m between intersections</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/manhatthan-road.png" alt="Manhattan Road Network">
+                    <figcaption class="text-sm text-gray-600">Manhattan: 60-200m between intersections</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/seoul-road.png" alt="Seoul Road Network">
+                    <figcaption class="text-sm text-gray-600">Seoul: 800m between intersections</figcaption>
+                </figure>
+            </div>
+
+            <!-- City Types Comparison -->
+            <p class="mb-5">Given this context, to achieve the goal of minimizing land use of the city, the shape and scale of the road network should be carefully determined. There are different options for the shape of the road network such as linear shape (NEOM The Line), radial shape (Paris), and grid shape (Manhattan). While these patterns can accommodate the growth of a city, they can lead to endless expansion because these road networks themselves have no set boundaries, consuming more and more of our limited land resources. Instead, I propose a circular, closed curve road network like a doughnut that would allow citizens to feel infinite space within a finite area as they follow the <b>cyclic road network</b>. A doughnut-shaped road network differs from traditional expandable patterns in that while traditional cities can theoretically expand indefinitely in multiple directions, the cyclic road network creates a boundary that encourages development within rather than beyond its limits.</p>
+            <div class="image-comparison">
+                <figure>
+                    <img src="assets/neom-city.jpg" alt="Linear City - NEOM">
+                    <figcaption class="text-sm text-gray-600">Linear Road Network (NEOM)</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/paris-radial.png" alt="Radial City - Paris">
+                    <figcaption class="text-sm text-gray-600">Radial Road Network (Paris)</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/manhattan-grid.jpg" alt="Grid City - Manhattan">
+                    <figcaption class="text-sm text-gray-600">Grid Road Network (Manhattan)</figcaption>
+                </figure>
+            </div>
+            <div class="image-comparison">
+                <figure>
+                    <img src="assets/after-paris.png" class="h-full object-cover rounded-lg">
+                </figure>
+                <figure>
+                    <img src="assets/after-man.png" class="h-full object-cover rounded-lg">
+                </figure>
+            </div>
+            <p class="text-sm text-gray-600 mt-2 text-center mb-6">Traditional road networks can not limit excessive road and city expansion because there are no boundaries</p>
+            
+            <!-- Continue with the rest of your content about hexagonal cities -->
+            <p class="mb-5">However, developing one huge doughnut-shaped city would be impractical and time-consuming. A more effective approach is to break the development into smaller, manageable units and connect them. But this raises a challenge: when arranging multiple circular cities together, empty space between the circles are created. For instance, four circular cities adjacent to each other create a star-shaped void in the middle. This layout contradicts the principles of a smart city as I propose, which aims to minimize inefficient land use. Then, how can we efficiently connect multiple units without wasting space?</p>
+            <p class="mb-5">The solution came from the honeycomb. Bees initially create circular cells that, when compressed together, naturally form space-efficient hexagons. Applying this principle to the design, I suggest a <b>hexagonal city structure</b>. When multiple hexagon-shaped cities are placed together, they fit perfectly like puzzle pieces, eliminating the empty area and maintaining connectivity. A simple calculation shows that a four-unit hexagonal layout requires only 70 square kilometers compared to 85 square kilometers for circular designs by reducing unused space in the middle. This means that a hexagon-shaped city can reduce a city's land use by approximately 20% compared to circular design. As mentioned above, the road network of the city would follow the hexagon's edges, forming the cyclic ring around the hexagon.</p>
+                        
+            <div class="content-section">
+                <div class="text-center mb-2">
+                    <h3 class="text-xl font-bold mb-2">Interactive Demonstration</h3>
+                    <p class="text-gray-600 mb-2">Click the blue button!</p>
+                </div>
+            
+                <div class="flex gap-8 items-center justify-center">
+                    <!-- Left side - Image -->
+                    <div class="flex-1">
+                        <img 
+                            src="assets/bee-hexagonal.png" 
+                            alt="Bee honeycomb structure" 
+                            class="w-full h-[600px] object-cover rounded-lg"
+                        />
+                        <p class="text-sm text-gray-600 mt-2 text-center">Natural honeycomb structure showing hexagonal optimization</p>
+                    </div>
+            
+                    <!-- Right side - Animation -->
+                    <div class="flex-1 flex flex-col items-center">
+                        <button onclick="toggleShapes()" class="demo-button mb-2">Transform Shapes</button>
+                        <div id="container" class="container">
+                            <div class="shape" style="transform: translate(-70px, -70px)">
+                                <svg viewBox="0 0 100 100">
+                                    <path d="M50,0 A50,50 0 1,1 50,100 A50,50 0 1,1 50,0" />
+                                </svg>
+                                <div class="text">Unit 1</div>
+                            </div>
+                            <div class="shape" style="transform: translate(70px, -70px)">
+                                <svg viewBox="0 0 100 100">
+                                    <path d="M50,0 A50,50 0 1,1 50,100 A50,50 0 1,1 50,0" />
+                                </svg>
+                                <div class="text">Unit 2</div>
+                            </div>
+                            <div class="shape" style="transform: translate(-70px, 70px)">
+                                <svg viewBox="0 0 100 100">
+                                    <path d="M50,0 A50,50 0 1,1 50,100 A50,50 0 1,1 50,0" />
+                                </svg>
+                                <div class="text">Unit 3</div>
+                            </div>
+                            <div class="shape" style="transform: translate(70px, 70px)">
+                                <svg viewBox="0 0 100 100">
+                                    <path d="M50,0 A50,50 0 1,1 50,100 A50,50 0 1,1 50,0" />
+                                </svg>
+                                <div class="text">Unit 4</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2 text-center">Check the star-shaped empty space in the middle disappear as the shapes change from circles to hexagons</p>
+                    </div>
+                </div>
+            </div>
+            <img src="assets/after-hex.png" alt="Hexagonal Design and Cyclic Road networks" style="width: 450px; display: block; margin: 0 auto;" class="mb-3 rounded">
+            <p class="text-sm text-gray-600 mt-2 text-center mb-5">AI-generated Image: Hexagonal Design and Cyclic Road Network. Check the cyclic road network bounded by hexagon's edges</p>
+            <p class="mb-5">The cyclic road network around hexagonal design directly addresses the <b>third aspect of our smart city definition: minimizing spatial footprint.</b> By <b>eliminating unused land between cities through hexagonal design and limiting excessive road expansion through closed/cyclic road network</b>, the proposed urban structure will allow us to accommodate growing urban populations while <b>consuming less land</b> than traditional city layouts.</p>
+
+
+            <section class="mt-12">
+                <h2 class="text-3xl font-bold mb-6">IV. Green Space and Active Sidewalk</h2>
+                <img src="assets/greenspace.jpg" style="width: 450px; display: block; margin: 0 auto;" class="mb-3 rounded">
+                <p class="text-sm text-gray-600 mt-2 text-center mb-5">AI-generated Image: Green space at the center of the city</p>
+        
+                <p class="mb-5">At the center of each hexagonal unit will lie a green space, but my approach to green space goes beyond just creating a park. I suggest what I named a <b>“gradient of nature.”</b> Within a green space, the center and periphery are very different. The periphery borders urban areas while the center maintains distance from the city. It is desirable to design green spaces according to these different characteristics. Towards the center, the green space should be preserved in its natural state, and towards the edge, neighborhood parks should be created for urban accessibility. For example, the green space is divided into three main tiers. In the center of the green space is a zone like a national park where human access is minimized. Outside of this central park is a camping park where people can freely enter and enjoy nature, and in the part closest to the urban area is a neighborhood park, which is a smaller space integrated into residential areas. By gradually arranging green spaces of different characters depending on their distance from urban areas, we can ensure human use of nature while preserving it.</p>
+                
+                <p class="mb-5"></p>
+                <div class="image-comparison">
+                    <figure>
+                        <img src="assets/central-park.jpg" alt="Linear City - NEOM">
+                        <figcaption class="text-sm text-gray-600">Tier 1: Central park in the center of green space</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/camping-park.jpg" alt="Radial City - Paris">
+                        <figcaption class="text-sm text-gray-600">Tier 2: Camping park surrounding the central park</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/neighborhood-park.jpg" alt="Grid City - Manhattan">
+                        <figcaption class="text-sm text-gray-600">Tier 3: Neighborhood park surrounding the camping park</figcaption>
+                    </figure>
+                </div>
+
+                <p class="mb-5">According to recent research that explored the association between urban green space and human health, there was a consistent negative association between exposure to urban green spaces and rates of mortality, heart disease, and violence. Conversely, a positive association was noted with improvements in attention, mood, and physical activity (Kondo, et al, 2018). This finding supports the assertion that green space in urban areas will contribute to the physical and mental well-being of citizens.</p>
+                <p class="mb-5">The well-being of the residents is not only about their physical and mental health, but also about how safe they feel in urban areas. For the safety of this new smart city, I suggest leveraging Jane Jacobs' assertion on the role sidewalks play in keeping cities safe in her work "The Uses of Sidewalks: Safety". Jacobs emphasizes that the safety of a city's streets correlates with its overall safety from crime and fear. Streets and sidewalks serve as vital public spaces where a mix of strangers and acquaintances interact, and their presence contributes to the informal surveillance that maintains public order. She also identifies three essential requirements for the sidewalk: eyes on the street, continuous pedestrian presence, and clear public-private space demarcation (Jacobs, 1961). Applying conditions for the sidewalk, I propose the smart city design to include <b>sidewalks that satisfy the three requirements.</b> To effectively implement her principles on the sidewalks, it is essential to ensure they are lined with a diverse range of businesses, such as cafes, retail shops, and service providers, that encourage frequent foot traffic and extended hours of activity.</p>
+                <p class="mb-5">Some might argue that in a smart city, advanced surveillance technologies like AI-powered monitoring cameras and big data collection could replace the role of sidewalks in maintaining safety. However, as Zuboff points out, relying only on surveillance technologies can lead to a significant imbalance between power and knowledge, shifting control from the public to the surveillance capitalists who collect and manage the data. This creates a scenario where personal autonomy is compromised, and citizens are merely subjects under continuous observation, stripped of their privacy and, potentially, their agency (Zuboff, 2015). Instead of replacing natural surveillance promoted by active sidewalks, technology should complement it, ensuring that the deployment of smart technologies is transparent and in line with democratic values that respect individual rights.</p>
+                <p class="mb-5">The proposed smart city elements, "gradient of nature" and active sidewalks, support the <b>first aspect of the new smart city definition: promoting citizens’ well-being.</b> The <b>tiered green space</b> not only preserves nature but also <b>fosters mental and physical health</b> through varied interactions with natural environments. Meanwhile, <b>active sidewalks</b> satisfying Jacobs’ three requirements create the conditions for <b>natural surveillance</b>, fostering a sense of security.</p>
+            </section>
+
+            <section class="mt-12">
+                <h2 class="text-3xl font-bold mb-6">V. Advanced Urban Participatory Budgeting</h2>
+        
+                <p class="mb-5">Beyond the physical design, a smart city must create social systems that maximize civic engagement. I propose implementing <b>urban participatory budgeting</b>, a democratic innovation successfully used in Porto Alegre, Brazil. In this system, the city is divided into regions, each with its own participatory budget assembly where residents can directly engage in formulating concrete budget proposals. These assemblies also include city-wide thematic meetings on issues like culture and public transportation, allowing any residents to participate in decisions that affect the entire community. According to Wright, this system has proven effective in Porto Alegre, demonstrating several key benefits: it has invigorated public involvement in city affairs, reoriented spending toward community needs, and reduced corruption through budget transparency (Wright, 2011).</p>
+                <p class="mb-5">Some might argue that implementing such participatory systems in a large city would be impractical due to spatial and temporal limitations. However, smart city technologies can actually enhance rather than hinder citizen participation. While Porto Alegre relied on physical assemblies, smart cities can augment in-person meetings with digital platforms, real-time voting systems, and advanced visualization tools. For example, we can move beyond video calls such as ZOOM today to more realistic video conferencing through holographic communications to make remote participation more engaging and natural, maintaining the essential human element of face-to-face deliberation while increasing accessibility.</p>
+                <div class="flex gap-1 items-center justify-center">
+                    <div class="flex-1">
+                        <img 
+                            src="assets/kingsman.jpg" 
+                            class="w-full h-[800px] object-cover rounded-lg"
+                        />
+                    </div>
+                    <div class="flex-1">
+                        <img 
+                            src="assets/avengers.png" 
+                            class="w-full h-[800px] object-cover rounded-lg"
+                        />
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 text-center mb-5"><i>Kingsman: The Secret Service</i> (Left) and <i>Avengers: Endgame</i> (Right). Holographic technology will allow for more effective communication</p>
+
+                <p class="mb-5">Research demonstrates that this enhanced civic participation yields significant social benefits. Studies have shown that neighborhoods with higher levels of civic participation experience greater community cohesion, lower crime rates, and improved citizen well-being (Pancer, 2015). Furthermore, civic engagement through participatory budgeting creates opportunities for building relationships of trust and reciprocity, which in turn enhances bonding and collective efficacy in neighborhoods (Collins et al., 2014).</p>
+                <p class="mb-5">This participatory approach directly advances the <b>second aspect of our smart city definition - maximizing human interaction - </b> by creating structured opportunities for citizens to meet, deliberate, and make decisions together. The combination of <b>participatory budgeting and smart city technologies</b> will foster a more responsive, transparent, and connected urban environment, building the <b>community bonds</b> essential to a truly smart city.</p>
+            </section>
+
+            <section class="mt-12">
+                <h2 class="text-3xl font-bold mb-6">VI. Conclusion</h2>
+                <p class="mb-5">This project began by challenging the traditional, technology-centric definition of a smart city. As rapid urbanization has led to environmental degradation and social alienation in cities, we need a new understanding of smart cities that addresses these fundamental challenges. Thus, I proposed a new definition of a smart city as an environment that, beyond technology use, <b>(1) promotes citizens' well-being, (2) maximizes human interactions while (3) occupying less space.</b></p>
+                <p class="mb-5">The design elements presented in this project address each aspect of this definition. The <b>hexagonal city structure with its cyclic road network</b> directly addresses the third aspect by reducing land use and discouraging over-expansion. The <b>"gradient of nature" green spaces and active sidewalks</b> fulfill the first aspect by fostering physical and mental health through varied access to nature while ensuring safety through natural surveillance. Finally, the <b>advanced participatory budgeting system</b> addresses the second aspect by creating structured opportunities for meaningful human interaction through civic engagement.</p>
+                <p class="mb-5">I expect this approach to provide a blueprint for future urban development that puts human needs at the center while addressing the challenges of rapid urbanization.</p>
+            </section>
+
+            <section class="mt-12">
+                <h2 class="text-3xl font-bold mb-6">VII. References</h2>
+                <p class="mb-1">[1] Glaeser, E. L. (2011). Triumph of the city: How our greatest invention makes us richer, smarter, greener, healthier, and happier. New York: Penguin Press.</p>
+                <p class="mb-1">[2] Dameri, R. (2013). Searching for Smart City definition: a comprehensive proposal. International Journal of Computers & Technology. 11. 2544. 10.24297/ijct.v11i5.1142.</p>
+                <p class="mb-1">[3] Viglione, G. (2021). Land-use change has affected 'almost a third' of world's terrain since 1960. Carbon Brief. Retrieved from https://www.carbonbrief.org/land-use-change-has-affected-almost-a-third-of-worlds-terrain-since-1960/</p>
+                <p class="mb-1">[4] Urbanet. (2016). World urban population. Retrieved from https://www.urbanet.info/world-urban-population/</p>
+                <p class="mb-1">[5] National Geographic. (n.d). Urban Threats. Retrieved from https://www.nationalgeographic.com/environment/article/urban-threats</p>
+                <p class="mb-1">[6] Simmel, G. (1903). The Metropolis and Mental Life.</p>
+                <p class="mb-1">[7] Kondo, M. C., Fluehr, J. M., McKeon, T., & Branas, C. C. (2018). Urban Green Space and Its Impact on Human Health. International journal of environmental research and public health, 15(3), 445.</p>
+                <p class="mb-1">[8] Jacobs, J. (1961). The Use of Sidewalks: Safety.</p>
+                <p class="mb-1">[9] Zuboff, S. (2015). Big Other: Surveillance Capitalism and the Prospects of an Information Civilization. Journal of Information Technology, 30, 75-89.</p>
+                <p class="mb-1">[10] Wright, E. O. (2011). Real Utopias. Contexts, 10(2), 36-42. DOI: 10.1177/1536504211408884</p>
+                <p class="mb-1">[11] Pancer, S. M. (2015). The Psychology of Citizenship and Civic Engagement. Oxford University Press.</p>
+                <p class="mb-1">[12] Collins, C. R., Neal, J. W., & Neal, Z. P. (2014). Transforming Individual Civic Engagement into Community Collective Efficacy: The Role of Bonding Social Capital. American Journal of Community Psychology, 54(3-4), 328-336. https://doi.org/10.1007/s10464-014-9675-x</p>
+            </section>
+            
+
+            <script>
+                let isHexagon = false;
+        
+                function toggleShapes() {
+                    const shapes = document.querySelectorAll('.shape');
+                    const paths = document.querySelectorAll('path');
+                    
+                    if (!isHexagon) {
+                        shapes[0].style.transform = 'translate(-41.5px, -40px)';  // Top left
+                        shapes[1].style.transform = 'translate(80px, -40px)';     // Top right
+                        shapes[2].style.transform = 'translate(18px, 65px)';      // Bottom left
+                        shapes[3].style.transform = 'translate(140px, 65px)';     // Bottom right
+        
+                        paths.forEach(path => {
+                            const hexPath = 'M50,0 L93.3,25 L93.3,75 L50,100 L6.7,75 L6.7,25 Z';
+                            path.setAttribute('d', hexPath);
+                        });
+                    } else {
+                        shapes[0].style.transform = 'translate(-70px, -70px)';
+                        shapes[1].style.transform = 'translate(70px, -70px)';
+                        shapes[2].style.transform = 'translate(-70px, 70px)';
+                        shapes[3].style.transform = 'translate(70px, 70px)';
+        
+                        paths.forEach(path => {
+                            path.setAttribute('d', 'M50,0 A50,50 0 1,1 50,100 A50,50 0 1,1 50,0');
+                        });
+                    }
+        
+                    isHexagon = !isHexagon;
+                }
+            </script>
+        </section>
+    </main>
+</body>
+</html>
